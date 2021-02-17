@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link href="styles.css" rel="stylesheet">
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="max-w-xl mx-auto my-10 space-y-3">
+    <h1>Mouse Events</h1>
+    <div class="box" @mouseover="handleMouse">mouseover (enter)</div>
+    <div class="box" @mouseleave="handleMouse">mouseleave</div>
+    <div class="box" @dblclick="handleMouse2">double click</div>
+    <div class="box" @mousemove="handleMousemove">postion x = {{ x }} y = {{ y }}</div>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main11.js"></script>
+</body>
+
+</html>

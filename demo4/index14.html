@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link href="styles.css" rel="stylesheet">
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="max-w-xl mx-auto my-10 space-y-3">
+    <h1 class="text-xl">Todo List ( {{ countUndone }} )</h1>
+    <input v-model="inputTask" @keyup.enter="addNewTask" 
+           placeholder="Please enter a new task ..." 
+           class="p-2 bg-white rounded border-2 border-blue-300">
+    <ul>
+      <li v-for="(task,index) in tasks" class="space-x-1":class="[task.done ? 'text-gray-300 line-through':'']">
+        {{task.title}} 
+        <button v-on:click="toggleDone(index)" class="bg-green-500 text-white  py-1 px-2 rounded">
+          Done
+        </button>
+        <button v-on:click="deleteTask(index)" class="bg-red-500 text-white  py-1 px-2 rounded">
+          Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main14.js"></script>
+</body>
+
+</html>

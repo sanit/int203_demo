@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link href="styles.css" rel="stylesheet">
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="max-w-2xl mx-auto my-10 space-y-3 box-border bg-gray-100 p-8 rounded-lg">
+    <h1 class="text-xl text-center">Todo List ( {{ countUndone }} )</h1>
+    <div class="flex justify-between space-x-2">
+        <input type="text" v-model="inputTask" placeholder="Enter a new task ..." class="p-2 bg-white rounded flex-1 border-b-2 border-blue-300">
+        <button @click="addNewTask" class="bg-green-500 text-white  py-1 px-6 rounded">Add</button>
+    </div>
+    <ul class="space-y-2">
+      <li v-for="(task,index) in tasks" class="p-2 bg-white rounded">
+        <div class="flex justify-between">
+        <div :class="[task.done ? 'text-gray-300 line-through':'']">
+            {{task.title}} 
+        </div>
+        <div>
+            <button v-on:click="toggleDone(index)" class="py-1 px-2 rounded" >
+                <span class="material-icons">
+                    check
+                </span>
+            </button>
+            <button v-on:click="deleteTask(index)" class="py-1 px-2 rounded" >
+                <span class="material-icons">
+                    delete
+                </span>
+            </button>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main15.js"></script>
+</body>
+
+</html>
