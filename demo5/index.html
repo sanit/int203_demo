@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="max-w-3xl mx-auto box-border bg-gray-100 p-8 rounded-lg my-10">
+    <h1 class="text-2xl text-center p-3">Photo Gallery</h1>
+    <div v-if="isSearch" class="flex justify-between space-x-2 pb-5 pt-5">
+      <input type="text" v-model="searchText" placeholder="Search Photos" class="p-2 bg-white rounded flex-1 border-b-2 border-blue-300">
+      <button @click="cancelSearch" class="bg-green-500 text-white  py-1 px-6 rounded">Cancel</button>
+    </div>
+    <div v-else-if="isPhoto" class="w-full h-90 bg-gray-600">
+      <div class="flex flex-col">
+        <div @click="hidePhoto" class="flex justify-end pt-5 pr-5 ">
+          <span class="material-icons">
+            highlight_off
+          </span>
+        </div>   
+        <div class="flex justify-center items-center p-5">
+          <img :src="currentPhoto.url" :alt="currentPhoto.description" class="block object-cover object-center w-1/3 h-1/3 rounded-lg">
+        </div>
+      </div>
+    </div>
+    <div v-else class="flex justify-end p-5">
+      <span class="material-icons" @click="showSearch">
+        search
+        </span>
+    </div>
+    <div class="flex space-x-3 p-2 justify-center bg-black">
+        <div v-for="photo in filterPhotos" :key="photo.id" class="flex flex-wrap">
+            <div @click="displayPhoto(photo.id)">
+                <img alt="gallery" class="block object-cover object-center w-20 h-50 rounded-lg border-black border-2 hover:border-white "
+                    :src="photo.url">
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
