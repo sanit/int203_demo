@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="max-w-3xl mx-auto box-border bg-gray-100 p-8 rounded-lg my-10">
+    <h1 class="text-2xl text-center p-3">Photo Gallery</h1>
+    <div v-if="isSearch" class="flex justify-between space-x-2 pb-5 pt-5">
+      <input ref="search" type="text" v-model="searchText" placeholder="Search Photos"
+        class="p-2 bg-white rounded flex-1 border-b-2 border-blue-300">
+      <button @click="cancelSearch" class="bg-green-500 text-white  py-1 px-6 rounded">Cancel</button>
+    </div>
+    <div v-else-if="isPhoto" class="bg-gray-600">
+      <div class="">
+        <div @click="hidePhoto" class="flex justify-end pt-5 pr-5 ">
+          <span class="material-icons">
+            highlight_off
+          </span>
+        </div>
+        <div class="flex justify-center items-center p-10 ">
+          <img :src="currentPhoto.url" :alt="currentPhoto.description"
+            class="w-60 h-80 object-cover rounded-lg ring ring-offset-white ring-offset-4">
+        </div>
+      </div>
+    </div>
+    <div v-else class="flex justify-end p-5">
+      <span class="material-icons" @click="showSearch">
+        search
+      </span>
+    </div>
+    <div class="grid grid-cols-6 bg-black p-1">
+      <div v-for="photo in filterPhotos" :key="photo.id"
+        class="p-1 rounded-lg border-black border-2 hover:border-white">
+        <img alt="gallery" :src="photo.url" @click="displayPhoto(photo.id)" class="w-48 h-32 object-cover">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main3.js"></script>
+</body>
+
+</html>
