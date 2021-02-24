@@ -1,0 +1,18 @@
+.done {
+    text-decoration: line-through;
+    color: red ;
+}
+
+.late {
+    text-decoration: underline ;
+    color: #f2f2f2 ;
+}
+
+.box {
+    padding: 100px 0;
+    width: 200px;
+    text-align: center ;
+    background: #ddd;
+    margin: 20px;
+    display: inline-block ;
+}

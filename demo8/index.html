@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link href="styles.css" rel="stylesheet">
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="max-w-2xl mx-auto my-10 space-y-3 box-border bg-gray-100 p-8 rounded-lg">
+    <h1 class="text-xl text-center">Todo List</h1>
+    <task-input @add-new-task="addNewTask"></task-input>
+    <task-list :tasks="tasks" @toggle-done="toggleDoneTask" @delete-task="deleteTask"></task-list>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+  <script src="./components/TaskInput.js"></script>
+  <script src="./components/TaskList.js"></script>
+
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
+</html>
