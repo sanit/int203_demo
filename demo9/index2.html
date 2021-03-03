@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app">
+      <form @submit.prevent="checkForm">
+        <div>
+            <h1 >Registration Form</h1>
+            <p v-if="errors.length" class="text-red-500">
+                <b>Please correct the following error(s):</b>
+                <ul>
+                   <li v-for="error in errors" >{{ error }}</li> 
+                </ul>
+            </p>
+            <div>
+                <div>
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" v-model="firstname" name="firstname">
+                </div>
+                <div >
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname" v-model="lastname" name="lastname">
+                </div>
+                <div >
+                    <label for="age">Age</label>
+                    <input type="text" id="age" v-model="age" name="age">
+                </div>
+                <div>
+                    <label>Gender</label>
+                    <div >
+                        <input type="radio" id="Male" v-model="gender" name="gender" value="M">
+                        <label for="Male">Male</label>
+                        <input type="radio" id="Female" v-model="gender" name="gender" value="F">
+                        <label for="Female">Female</label>
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" v-model="email" name="email">
+                </div>
+                <div>
+                    <label for="phone>Phone Number</label>
+                    <input type="text" id="phone" v-model="phone" name="phone">
+                </div>
+                <div >
+                    <label for="chosensubject>Subject</label>
+                    <select id="chosensubject" v-model="chosensubject" name="chosensubject">
+                    <option v-for="subject in subject_lists" :value="subject.subject_id">
+                        {{subject.subject_name}}
+                    </option>
+                </div>
+                <div >
+                    <input type="submit" value="Submit" >
+                </div>
+            </div>
+        </div>                            
+      </form>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main2.js"></script>
+</body>
+
+</html>

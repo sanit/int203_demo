@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div id="app" class="container w-2/5 space-y-2 pl-10">
+     <div class="rounded bg-gray-100 p-5">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" v-model="firstname" >
+        <p>{{firstname}}</p>   
+        <p>{{namelength}}</p>
+     </div>
+
+     <div class="rounded bg-gray-100 p-5">
+        <label for="description">Description</label>
+        <textarea v-model="description"></textarea>
+        <p>{{description}}</p>        
+     </div>
+
+     <div class="rounded bg-gray-100 p-5">
+        <input type="checkbox" id="agreed" v-model="agreed">
+        <label for="agreed">Agreed</label>
+        <p>{{agreed}}</p>
+      </div>
+
+      <div class="rounded bg-gray-100 p-5">
+        <input type="checkbox" id="accepted" v-model="accepted" true-value="Y" false-value="N">
+        <label for="accepted">Accepted</label>
+        <p>{{accepted}}</p>
+      </div>
+
+      <div class="rounded bg-gray-100 p-5">
+        <label>Choose your favorite fruite(s)</label><br>
+        <input type="checkbox" id="apple" v-model="fruits" value="apple">
+        <label for="apple">Apple</label>
+        <input type="checkbox" id="cherry" v-model="fruits" value="cherry">
+        <label for="cherry">Cherry</label>
+        <input type="checkbox" id="orange" v-model="fruits" value="orange">
+        <label for="orange">Orange</label>
+        <p>{{fruits}}</p>
+      </div>
+
+      <div class="rounded bg-gray-100 p-5">
+        <label>Choose the most favorite fruite</label><br>
+        <input type="radio" id="apple1" v-model="fruit" value="apple">
+        <label for="apple1">Apple</label>
+        <input type="radio" id="cherry1" v-model="fruit" value="cherry">
+        <label for="cherry1">Cherry</label>
+        <input type="radio" id="orange1" v-model="fruit" value="orange">
+        <label for="orange1">Orange</label>
+        <p>{{fruit}}</p>
+      </div>
+
+      <div class="rounded bg-gray-100 p-5">
+        <label>Choose One fruite</label><br>
+        <select v-model="onefruit">
+            <option>Apple</option>
+            <option>Cherry</option>
+            <option>Orange</option>
+        </select>
+        <p>{{onefruit}}</p>
+      </div>
+
+      <div class="rounded bg-gray-100 p-5">
+        <label>Choose Multiple fruite(s)</label><br>
+        <select v-model="multifruit" multiple>
+            <option>Apple</option>
+            <option>Cherry</option>
+            <option>Orange</option>
+        </select>
+        <p>{{multifruit}}</p>
+      </div>
+
+      <div class="rounded bg-gray-100 p-5">
+        <label>Choose Other fruite</label><br>
+        <select v-model="otherfruit">
+            <option v-for="fruit in fruitlists"  v-bind:value="fruit.id">
+                {{fruit.fruit}}
+            </option>
+        </select>
+        <p>{{otherfruit}}</p>
+      </div>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
