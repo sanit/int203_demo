@@ -12,7 +12,7 @@
 
   <!-- https://tailwindcss.com/docs/installation -->
   <!-- Using Tailwind via CDN -->
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" /> -->
 
   <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
   <!-- Vue CDN -->
@@ -58,11 +58,11 @@
                     <input type="text" id="email" v-model="email" name="email">
                 </div>
                 <div>
-                    <label for="phone>Phone Number</label>
+                    <label for="phone">Phone Number</label>
                     <input type="text" id="phone" v-model="phone" name="phone">
                 </div>
                 <div >
-                    <label for="chosensubject>Subject</label>
+                    <label for="chosensubject">Subject</label>
                     <select id="chosensubject" v-model="chosensubject" name="chosensubject">
                     <option v-for="subject in subject_lists" :value="subject.subject_id">
                         {{subject.subject_name}}
