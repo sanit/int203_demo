@@ -24,7 +24,7 @@
   <div id="app" class="container w-2/5 space-y-2 pl-10">
      <div class="rounded bg-gray-100 p-5">
         <label for="firstname">First Name</label>
-        <input type="text" id="firstname" v-model="firstname" >
+        <input type="text" id="firstname" v-model.trim="firstname" >
         <p>{{firstname}}</p>   
         <p>{{namelength}}</p>
      </div>
