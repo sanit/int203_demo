@@ -34,7 +34,7 @@ var app =Vue.createApp({
     data() {
         return {
             formdata: {
-                firstname: 'Sanit',
+                firstname: null,
                 lastname: null,
                 age: null,
                 gender: null,
@@ -50,9 +50,9 @@ var app =Vue.createApp({
     },
     methods: {
         checkForm(){
-            console.log(this.formdata)
             this.errors = validate(this.formdata,
                                     constraints)
+            console.log(this.errors)
             if(!this.errors){
                 alert("Registered successfully.")
             }
